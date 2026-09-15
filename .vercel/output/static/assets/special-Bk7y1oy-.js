@@ -1,0 +1,1 @@
+import{l as e}from"./index-CSQYhvd4.js";import{t}from"./section-placeholder-iwIinqeT.js";var n=e();function r(){return(0,n.jsx)(t,{eyebrow:`انتخاب مزون`,title:`ویژه`,description:`مجموعه‌های محدود و پیشنهادهای ویژه بعداً روی همین مسیر قرار می‌گیرند.`})}export{r as component};

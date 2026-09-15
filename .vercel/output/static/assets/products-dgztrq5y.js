@@ -1,0 +1,1 @@
+import{l as e}from"./index-CSQYhvd4.js";import{t}from"./section-placeholder-iwIinqeT.js";var n=e();function r(){return(0,n.jsx)(t,{eyebrow:`کاتالوگ`,title:`عطرها`,description:`فهرست محصولات در مرحله بعد و پس از اتصال پایگاه داده پیاده‌سازی می‌شود.`})}export{r as component};

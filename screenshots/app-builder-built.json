@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "لیان | آتلیه عطر",
+      "hasCanvas": false,
+      "bodyTextLen": 760,
+      "bodyTextHash": "1f2ad15c3f19e65d28781fd0a9e1f8c601e175b7a7a52a1e5f2b070a2fc87532",
+      "bodyTextPrefix": "رفتن به محتوا LIAN لیان عطرها دسته‌بندی برندها ویژه مقالات آتلیه",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "لیان | آتلیه عطر",
+      "hasCanvas": false,
+      "bodyTextLen": 725,
+      "bodyTextHash": "6a58ec30bdaa85a226e6b9dae79c062eeccd64845d8170ecc92e647785c8de90",
+      "bodyTextPrefix": "رفتن به محتوا LIAN لیان آتلیه عطر سکوت، طلا، و بویی که می‌ماند م",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

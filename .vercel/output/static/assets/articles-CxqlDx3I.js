@@ -1,0 +1,1 @@
+import{l as e}from"./index-CSQYhvd4.js";import{t}from"./section-placeholder-iwIinqeT.js";var n=e();function r(){return(0,n.jsx)(t,{eyebrow:`روایت`,title:`مقالات`,description:`صفحهٔ مجله و یادداشت‌های عطر در مراحل بعدی توسعه داده می‌شود.`})}export{r as component};

@@ -1,0 +1,1 @@
+import{l as e}from"./index-CSQYhvd4.js";import{t}from"./section-placeholder-iwIinqeT.js";var n=e();function r(){return(0,n.jsx)(t,{eyebrow:`خانه‌ها`,title:`برندها`,description:`معرفی برندها پس از تعریف مدل داده و بدون دادهٔ نمایشی انجام خواهد شد.`})}export{r as component};

@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ProductStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+enum GenderTarget {
+  FEMININE
+  MASCULINE
+  UNISEX
+}
+
+enum Concentration {
+  PARFUM
+  EDP
+  EDT
+  EDC
+  OIL
+}
+
+enum FragranceFamily {
+  FLORAL
+  WOODY
+  ORIENTAL
+  FRESH
+  CITRUS
+  GOURMAND
+  CHYPRE
+  FOUGERE
+}
+
+model Brand {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  nameFa      String    @map("name_fa")
+  description String?   @db.Text
+  country     String?
+  logoUrl     String?   @map("logo_url")
+  isActive    Boolean   @default(true) @map("is_active")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  products    Product[]
+
+  @@map("brands")
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  slug        String     @unique
+  name        String
+  nameFa      String     @map("name_fa")
+  description String?    @db.Text
+  parentId    String?    @map("parent_id")
+  parent      Category?  @relation("CategoryTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children    Category[] @relation("CategoryTree")
+  sortOrder   Int        @default(0) @map("sort_order")
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
+  products    Product[]
+
+  @@index([parentId])
+  @@map("categories")
+}
+
+model Product {
+  id              String           @id @default(cuid())
+  slug            String           @unique
+  sku             String           @unique
+  name            String
+  nameFa          String           @map("name_fa")
+  description     String?          @db.Text
+  brandId         String           @map("brand_id")
+  brand           Brand            @relation(fields: [brandId], references: [id], onDelete: Restrict)
+  categoryId      String           @map("category_id")
+  category        Category         @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  concentration   Concentration
+  genderTarget    GenderTarget     @map("gender_target")
+  fragranceFamily FragranceFamily? @map("fragrance_family")
+  volumeMl        Int              @map("volume_ml")
+  priceAmount     Int              @map("price_amount")
+  compareAmount   Int?             @map("compare_amount")
+  stockQty        Int              @default(0) @map("stock_qty")
+  status          ProductStatus    @default(DRAFT)
+  isFeatured      Boolean          @default(false) @map("is_featured")
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
+  images          ProductImage[]
+
+  @@index([brandId])
+  @@index([categoryId])
+  @@index([status])
+  @@index([isFeatured])
+  @@map("products")
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String   @map("product_id")
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String?
+  sortOrder Int      @default(0) @map("sort_order")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([productId])
+  @@map("product_images")
+}
+
+model Article {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String?   @db.Text
+  content     String?   @db.Text
+  coverUrl    String?   @map("cover_url")
+  publishedAt DateTime? @map("published_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@index([publishedAt])
+  @@map("articles")
+}
+
+// Cart, reviews, orders, and accounts will be modeled in later stages.

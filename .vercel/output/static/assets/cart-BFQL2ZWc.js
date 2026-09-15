@@ -1,0 +1,1 @@
+import{l as e}from"./index-CSQYhvd4.js";import{t}from"./section-placeholder-iwIinqeT.js";var n=e();function r(){return(0,n.jsx)(t,{eyebrow:`سفارش`,title:`سبد خرید`,description:`سبد خرید و تسویه در این مرحله پیاده‌سازی نشده است.`})}export{r as component};
